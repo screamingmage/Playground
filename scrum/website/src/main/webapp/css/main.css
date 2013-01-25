@@ -1,0 +1,161 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color: #FFFFFF;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	margin: 0;
+}
+
+header {
+	padding: 20px;
+}
+
+.container {
+	margin-top: 5px;
+}
+
+.content {
+	display: inline-block;
+	padding: 10px 0px 10px 20px;
+	width: 100%;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.left-pane {
+	display: inline-block;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	vertical-align: top;
+	width: 200px;
+}
+
+.left-pane a {
+	display: block;
+}
+
+.right-pane {
+	border-left: 1px solid #666;
+	display: inline-block;
+	padding: 10px 0px 50px 60px;
+	vertical-align: top;
+	width: 70%;
+}
+
+.search-box {
+	display: block;
+	margin-bottom: 10px;
+	width: 170px;
+	border-radius: 1px;
+	-moz-border-radius: 1px;
+	-khtml-border-radius: 1px;
+	-webkit-border-radius: 1px;
+}
+
+.scrum-information {
+	display: inline-block;
+	min-width: 500px;
+	width: 100%;
+}
+
+.scrum-information ul {
+	list-style: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.scrum-information ul li {
+	padding-bottom: 3px;
+}
+
+.scrum-information ul li.gap {
+	margin-bottom: 10px;
+}
+
+.scrum-information ul li span {
+	display: inline-block;
+}
+
+.scrum-information ul li span.unique-id {
+	width: 50px;
+}
+
+.scrum-information ul li span.title {
+	width: 60%;
+	min-width: 200px;
+}
+
+.scrum-information ul li span.view-story {
+	width: 100px;
+}
+
+.scrum-information div.create-story-form {
+	min-width: 400px;
+	width: 70%;
+}
+
+.scrum-information div.create-story-form div label {
+	display: inline-block;
+  	width: 100px;
+  	vertical-align: top;
+}
+
+.scrum-information div.create-story-form div {
+ 	margin-bottom: 15px; 
+}
+
+.scrum-information div.create-story-form div input {
+ 	width: 60%; 
+}
+
+.scrum-information div.create-story-form div.description textarea {
+ 	height: 150px;
+ 	padding: 0; 
+	width: 60%;
+}
+
+.scrum-information div.create-story-form div input.create {
+	margin-left: 103px;
+ 	width: 150px; 
+}
+
+.scrum-information div.error-message {
+	min-width: 350px;
+	width: 100%;
+}
+
+.scrum-information div.story-edit {
+	display: inline-block;
+	margin: 0 0 20px 10px;
+	min-width: 100px;
+	vertical-align: top;
+	width: 20%;
+}
+
+.scrum-information div.story-details {
+	display: inline-block;
+	min-width: 350px;
+	vertical-align: top;
+	width: 60%;
+}
+
+.scrum-information div.story-details div.story-attribute {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.scrum-information div.story-details div.story-attribute h4 {
+	margin: 0;
+	width: 50px;
+}
+
+.scrum-information div.story-details div.story-attribute p {
+	margin: 0;
+	width: 500px;
+}
