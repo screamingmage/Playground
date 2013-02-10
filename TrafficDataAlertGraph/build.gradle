@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile 'commons-collections:commons-collections:3.2'
+	compile 'joda-time:joda-time:2.1'
+	compile 'org.slf4j:slf4j-log4j12:1.6.6'
+	
+    testCompile 'junit:junit:4.8.2'
+}
