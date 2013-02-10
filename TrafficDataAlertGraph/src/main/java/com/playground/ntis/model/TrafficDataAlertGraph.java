@@ -15,7 +15,7 @@ public class TrafficDataAlertGraph {
 		this.routeGraph = new HashMap<TrafficDataAlert, Set<TrafficDataAlert>>();
 		
 		addAlertsWhichAreAtTheHeadOfRoutes(alerts);
-		addRoutesForAlertsAtTheHeadOfARoute();
+		addRoutesForAlerts();
 	}
 	
 	public Map<TrafficDataAlert, Set<TrafficDataAlert>> getGraph() {
@@ -36,7 +36,7 @@ public class TrafficDataAlertGraph {
 		}
 	}
 	
-	private void addRoutesForAlertsAtTheHeadOfARoute() {
+	private void addRoutesForAlerts() {
 		for (TrafficDataAlert alert : routeGraph.keySet()) {
 			Set<TrafficDataAlert> route = new HashSet<TrafficDataAlert>();
 			populateRouteWithAlertHead(route, alert);
@@ -50,11 +50,14 @@ public class TrafficDataAlertGraph {
 		}
 		
 		route.add(alert);
-		populateRouteWithAlertHead(route, alert.getUpstream());
+		
+		for (TrafficDataAlert upstreamAlert : alert.getUpstreamAlerts()) {
+			populateRouteWithAlertHead(route, upstreamAlert);
+		}
 	}
 
 	private boolean isAlertAtHeadOfARoute(TrafficDataAlert alert) {
-		return alert.getDownstream() == null;
+		return alert.getDownstreamAlerts().size() == 0;
 	}
 	
 	private void clearGraph() {

@@ -4,16 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.playground.ntis.model.TrafficDataAlert;
 import com.playground.ntis.model.TrafficDataAlertGraph;
 import com.playground.ntis.repository.NetworkLinkDao;
 
 public class TrafficDataAlertService {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(TrafficDataAlertService.class);
 	
 	private NetworkLinkDao linkDao;
 	
@@ -49,23 +44,24 @@ public class TrafficDataAlertService {
 
 	private void setupUpstreamLink(Map<Long, TrafficDataAlert> linksToAlerts,
 			TrafficDataAlert alert) {
-		LOG.info("Finding upstream link for " + alert.getLinkId());
-		
 		Long upstreamLink = linkDao.getAdjacentUpstreamLink(alert.getLinkId());
 		if (upstreamLink != null) {
-			LOG.info("Found " + upstreamLink);
-			alert.setUpstream(linksToAlerts.get(upstreamLink));
+			TrafficDataAlert upstreamAlert = linksToAlerts.get(upstreamLink);
+			if (upstreamAlert != null) {
+				alert.addUpstreamAlert(upstreamAlert);
+			}
 		}
 	}
 	
 	private void setupDownstreamLink(Map<Long, TrafficDataAlert> linksToAlerts,
 			TrafficDataAlert alert) {
 		
-		LOG.info("Finding downstream link for " + alert.getLinkId());
 		Long downstreamLink = linkDao.getAdjacentDownstreamLink(alert.getLinkId());
 		if (downstreamLink != null) {
-			LOG.info("Found " + downstreamLink);
-			alert.setDownstream(linksToAlerts.get(downstreamLink));
+			TrafficDataAlert downstreamAlert = linksToAlerts.get(downstreamLink);
+			if (downstreamAlert != null) {
+				alert.addDownstreamAlert(downstreamAlert);
+			}
 		}
 	}
 }

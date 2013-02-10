@@ -1,5 +1,8 @@
 package com.playground.ntis.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.joda.time.DateTime;
 
 public class TrafficDataAlert {
@@ -11,8 +14,8 @@ public class TrafficDataAlert {
 	
 	private boolean completed;
 	
-	private TrafficDataAlert upstream;
-	private TrafficDataAlert downstream;
+	private List<TrafficDataAlert> upstreamAlerts;
+	private List<TrafficDataAlert> downstreamAlerts;
 
 	public TrafficDataAlert(
 			final long linkId, 
@@ -25,6 +28,9 @@ public class TrafficDataAlert {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.completed = completed;
+		
+		upstreamAlerts = new ArrayList<TrafficDataAlert>();
+		downstreamAlerts = new ArrayList<TrafficDataAlert>();
 	}
 
 	public long getLinkId() {
@@ -42,23 +48,23 @@ public class TrafficDataAlert {
 	public boolean isCompleted() {
 		return completed;
 	}
-
-	public TrafficDataAlert getUpstream() {
-		return upstream;
-	}
-
-	public void setUpstream(TrafficDataAlert upstream) {
-		this.upstream = upstream;
-	}
-
-	public TrafficDataAlert getDownstream() {
-		return downstream;
-	}
-
-	public void setDownstream(TrafficDataAlert downstream) {
-		this.downstream = downstream;
+	
+	public void addUpstreamAlert(TrafficDataAlert alert) {
+		this.upstreamAlerts.add(alert);
 	}
 	
+	public List<TrafficDataAlert> getUpstreamAlerts() {
+		return upstreamAlerts;
+	}
+	
+	public void addDownstreamAlert(TrafficDataAlert alert) {
+		this.downstreamAlerts.add(alert);
+	}
+	
+	public List<TrafficDataAlert> getDownstreamAlerts() {
+		return downstreamAlerts;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
